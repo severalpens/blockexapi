@@ -1,0 +1,55 @@
+{
+  "name": "tokenvortexapi",
+  "description": "api for TokenVortex",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha --timeout 10000",
+    "flatten": "npx waffle flatten",
+    "index": "node index.js",
+    "wafflebuild": "waffle"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity"
+  ],
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.5.1",
+    "apollo-server": "^2.19.0",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dayjs": "^1.9.4",
+    "debug": "~2.6.9",
+    "delay": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "ethereum-waffle": "^3.0.2",
+    "ethers": "^5.0.4",
+    "express": "^4.16.4",
+    "express-graphql": "^0.12.0",
+    "fs-extra": "^9.0.1",
+    "graphql": "^15.4.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.9.7",
+    "morgan": "~1.9.1",
+    "pidusage": "^2.0.21",
+    "socket.io": "^2.3.0",
+    "solc": "^0.5.17",
+    "statman": "^1.8.1",
+    "statman-stopwatch": "^2.11.1",
+    "systeminformation": "^4.28.0",
+    "websocket": "^1.0.32",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.0"
+  }
+}
