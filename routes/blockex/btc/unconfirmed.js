@@ -31,6 +31,20 @@ router.get("/", function (req, res, next) {
   });
 });
 
+
+router.get("/limit/:count", function (req, res, next) {
+  const query = BlockexModel.find(props).limit(req.params.count);
+  query.exec((err, blocks) => {
+    if (err != null) {
+      return res.send(err);
+    }
+    else {
+      return res.send(blocks);
+    }
+  });
+});
+
+
 router.get("/start", async function (req, res, next) {
   ws = new WebSocket("wss://ws.blockchain.info/inv");
   ws.onopen = function (event) {

@@ -8,7 +8,7 @@ router.use(cors());
 // router.use('/blockex',blockexRouter);
 
 router.get('/', function(req, res, next) {
-  res.send("Welcome to blockexapi. To start a feed eg blockchain.com's 'unconfirmed transactions' ws, navigate to '/blockex/btc/unconfirmed/start'. To see the feed go to '/blockex/btc/unconfirmed' ");
+  res.send("Welcome to blockexapi! <br> To start a feed eg blockchain.com's 'unconfirmed transactions' ws, navigate to '/blockex/btc/unconfirmed/start'. To see the feed go to '/blockex/btc/unconfirmed/limit/2' ");
 });
 
 
