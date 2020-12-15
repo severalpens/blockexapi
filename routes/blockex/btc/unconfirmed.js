@@ -15,11 +15,9 @@ let props = {
 
 
 //Subscribing to new blocks as per: https://www.blockchain.com/api/api_websocket
-ws = new WebSocket("wss://ws.blockchain.info/inv");
+var ws = {};
 
-ws.onopen = function (event) {
-  ws.send(JSON.stringify({ "op": props.sub }));
-}
+
 
 router.get("/", function (req, res, next) {
   const query = BlockexModel.find(props).limit(10);
@@ -34,6 +32,10 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/start", async function (req, res, next) {
+  ws = new WebSocket("wss://ws.blockchain.info/inv");
+  ws.onopen = function (event) {
+    ws.send(JSON.stringify({ "op": props.sub }));
+  }
   ws.onmessage = async function (event) {
     console.log('unconfirmed');
     let blockexModel = new BlockexModel();
@@ -62,11 +64,6 @@ router.get("/status", async function (req, res, next) {
   res.json(isRunning)
 });
 
-router.get("/reset", async function (req, res, next) {
-  let blockchain = 'Bitcoin';
-  await BlockexModel.deleteMany(props).exec();
-  res.json({'msg': 'Btc blocks have been removed'})
-});
 
 
 
