@@ -3,12 +3,14 @@ var router = express.Router();
 var cors = require('cors');
 router.use(cors());
 
-// var blockexRouter = require("./blockex/blockex");
-
-// router.use('/blockex',blockexRouter);
 
 router.get('/', function(req, res, next) {
-  res.send("Welcome to blockexapi! <br> To start a feed eg blockchain.com's 'unconfirmed transactions' ws, navigate to '/blockex/btc/unconfirmed/start'. To see the feed go to '/blockex/btc/unconfirmed/limit/2' ");
+  res.render('index', { title: 'Blockex API' });
+});
+
+
+router.get('/', function(req, res, next) {
+  res.send("Welcome to blockexapi! <br> To start a feed eg blockchain.com's 'unconfirmed transactions' ws, navigate to '/v1/btc/unconfirmed/start'. To see the feed go to '/v1/btc/unconfirmed/limit/2' ");
 });
 
 

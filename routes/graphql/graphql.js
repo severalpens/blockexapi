@@ -9,7 +9,7 @@ router.use(express.json({limit: '50mb'}));
 router.use(express.urlencoded({limit: '50mb',extended: false}));
 router.use(bodyParser.json({extended: false}));
 
-const BlockexModel = require('../blockex/models/blockex');
+const BlockexModel = require('../v1/models/blockex');
 
 const { graphqlHTTP } = require('express-graphql');
 const graphql = require('graphql');

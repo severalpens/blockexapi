@@ -66,8 +66,12 @@ router.get("/start", async function (req, res, next) {
 
 
 router.get("/stop", async function (req, res, next) {
-  ws.send(JSON.stringify({ "op": "unconfirmed_unsub" }));
- 
+  ws.close();
+  ws = new WebSocket("wss://ws.blockchain.info/inv");
+  ws.onopen = function (event) {
+    ws.send(JSON.stringify({ "op": "unconfirmed_unsub" }));
+  }
+
   isRunning  = false;
   res.json(isRunning)
 });

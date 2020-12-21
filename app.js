@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var jwt = require('jsonwebtoken');
 var indexRouter = require('./routes/index');
-var blockexRouter = require("./routes/blockex/blockex");
+var v1Router = require("./routes/v1/v1");
 var graphqlRouter = require("./routes/graphql/graphql");
 
 // view engine setup
@@ -21,7 +21,7 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb',extended: false}));
 app.use(bodyParser.json({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/blockex',blockexRouter);
+app.use('/v1',v1Router);
 app.use('/graphql',graphqlRouter);
 
 
