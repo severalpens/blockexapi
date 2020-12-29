@@ -4,3 +4,6 @@ This is an API server application built using [Node](https://nodejs.org) [Expres
 ## To run:
 - npm install
 - npm start
+
+## Video Tutorial:
+https://youtu.be/xs9n_EzAz2A
