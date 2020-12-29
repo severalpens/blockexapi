@@ -5,5 +5,5 @@ This is an API server application built using [Node](https://nodejs.org) [Expres
 - npm install
 - npm start
 
-## Video Tutorial:
+See video tutorial for more detailed setup info:
 https://youtu.be/xs9n_EzAz2A
