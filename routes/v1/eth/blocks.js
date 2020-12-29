@@ -49,6 +49,7 @@ async function getAddressBalances(block){
 
 router.get("/",  function(req, res, next) {
   const query = BlockexModel.find(props);
+  query.limit(1);
   query.exec((err, blocks) => {
       if (err != null) {
         return res.send(err);
@@ -58,6 +59,20 @@ router.get("/",  function(req, res, next) {
       }
     });
 });
+
+
+router.get("/all",  function(req, res, next) {
+  const query = BlockexModel.find(props);
+  query.exec((err, blocks) => {
+      if (err != null) {
+        return res.send(err);
+      } 
+      else {
+        return res.send(blocks);
+      }
+    });
+});
+
 
 router.get("/start", async function(req, res, next) {
   provider.on("block", blockHandler);

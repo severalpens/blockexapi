@@ -20,7 +20,7 @@ var ws = {};
 
 
 router.get("/", function (req, res, next) {
-  const query = BlockexModel.find(props).limit(10);
+  const query = BlockexModel.find(props).limit(1);
   query.exec((err, blocks) => {
     if (err != null) {
       return res.send(err);
@@ -30,6 +30,20 @@ router.get("/", function (req, res, next) {
     }
   });
 });
+
+
+router.get("/all", function (req, res, next) {
+  const query = BlockexModel.find(props);
+  query.exec((err, blocks) => {
+    if (err != null) {
+      return res.send(err);
+    }
+    else {
+      return res.send(blocks);
+    }
+  });
+});
+
 
 
 router.get("/limit/:count", function (req, res, next) {
